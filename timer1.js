@@ -1,5 +1,7 @@
-let alarmsArr = process.argv.slice(2).sort()
+let alarmsArr = process.argv.slice(2).sort();
 
 for (let alarmTime of alarmsArr) {
-  setTimeout(() => process.stdout.write('\x07'), alarmTime * 1000)
-}
+  if (typeof(alarmTime) !== NaN && alarmTime >= 0) {
+    setTimeout(() => process.stdout.write('\x07'), alarmTime * 1000);
+  }
+};
